@@ -5,9 +5,9 @@ const diceBtn = document.getElementById("dice-btn");
 async function getAdvice() {
   try {
     const response = await fetch(
-      "https://api.adviceslip.com/advice",
-      { cache: "no-cache" }
+      `https://api.adviceslip.com/advice?timestamp=${Date.now()}`
     );
+
     const data = await response.json();
 
     adviceNumber.textContent = data.slip.id;
@@ -16,6 +16,7 @@ async function getAdvice() {
     adviceText.textContent = "Oops! Something went wrong. Try again.";
   }
 }
+
 
 getAdvice();
 diceBtn.addEventListener("click", getAdvice);
