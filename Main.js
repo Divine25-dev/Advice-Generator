@@ -5,7 +5,7 @@ const diceBtn = document.getElementById("dice-btn");
 async function getAdvice() {
   try {
     const response = await fetch(
-      `https://api.adviceslip.com/advice?timestamp=${Date.now()}`
+      `https://api.adviceslip.com/advice?random=${Math.random()}`
     );
 
     const data = await response.json();
@@ -17,6 +17,5 @@ async function getAdvice() {
   }
 }
 
-
-getAdvice();
 diceBtn.addEventListener("click", getAdvice);
+getAdvice();
